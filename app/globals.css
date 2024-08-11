@@ -96,11 +96,11 @@
 
   /* ==== FORM */
   .radio-group {
-    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
+    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-solid border-dark-400 bg-dark-400 p-3;
   }
 
   .checkbox-label {
-    @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+    @apply cursor-pointer text-sm font-medium text-dark-400 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
   }
 
   /* ==== File Upload */
@@ -195,7 +195,7 @@
   }
 
   .shad-input-label {
-    @apply text-14-medium text-dark-700 !important;
+    @apply text-14-medium text-dark-600 !important;
   }
 
   .shad-input {
@@ -223,7 +223,7 @@
   }
 
   .shad-select-content {
-    @apply bg-dark-400 border-dark-500 !important;
+    @apply bg-dark-400 border-dark-500 text-white !important;
   }
 
   .shad-dialog {
@@ -348,3 +348,6 @@
 .PhoneInputInput::placeholder {
   color: #1a1d21;
 }
+
+
+

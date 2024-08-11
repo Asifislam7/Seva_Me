@@ -29,7 +29,9 @@ export default function RootLayout({
           fontSans.variable
         )}
         style={{
-          background: "linear-gradient(to right, ivory, lightblue)"
+          background: "linear-gradient(to right, ivory, lightblue)",
+          color:"black",
+          fontWeight:"bold"
         }}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
