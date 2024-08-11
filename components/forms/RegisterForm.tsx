@@ -168,6 +168,8 @@ const RegisterForm = ({ user }: { user: User }) => {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
+                    {/* when we change something on the front end side code and it is connected somehow to the backend
+                    then we have to reload the browser but in the backend we have to make another request */}
                     {GenderOptions.map((option: string,i:any) => (
                       <div key={option+i} className="radio-group">
                         <RadioGroupItem value={option} id={option} />
@@ -377,7 +379,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           />
         </section>
 
-        <SubmitButton isLoading={isLoading}>Submit and Continue</SubmitButton>
+        <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
   );
