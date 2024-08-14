@@ -76,7 +76,8 @@ export const PatientFormValidation = z.object({
     }),
 });
 
-export const CreateAppointmentSchema = z.object({
+export const 
+CreateAppointmentSchema = z.object({
   primaryPhysician: z.string().min(2, "Select at least one doctor"),
   schedule: z.coerce.date(),
   reason: z
