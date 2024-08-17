@@ -41,17 +41,17 @@ export const getRecentAppointmentList = async () => {
       [Query.orderDesc("$createdAt")]
     );
 
-    const scheduledAppointments = (
-      appointments.documents as Appointment[]
-    ).filter((appointment) => appointment.status === "scheduled");
+    // const scheduledAppointments = (
+    //   appointments.documents as Appointment[]
+    // ).filter((appointment) => appointment.status === "scheduled");
 
-    const pendingAppointments = (
-      appointments.documents as Appointment[]
-    ).filter((appointment) => appointment.status === "pending");
+    // const pendingAppointments = (
+    //   appointments.documents as Appointment[]
+    // ).filter((appointment) => appointment.status === "pending");
 
-    const cancelledAppointments = (
-      appointments.documents as Appointment[]
-    ).filter((appointment) => appointment.status === "cancelled");
+    // const cancelledAppointments = (
+    //   appointments.documents as Appointment[]
+    // ).filter((appointment) => appointment.status === "cancelled");
 
     // const data = {
     //   totalCount: appointments.total,
@@ -101,26 +101,26 @@ export const getRecentAppointmentList = async () => {
 };
 
 //  SEND SMS NOTIFICATION
-// export const sendSMSNotification = async (userId: string, content: string) => {
-//   try {
+export const sendSMSNotification = async (userId: string, content: string) => {
+  try {
     // https://appwrite.io/docs/references/1.5.x/server-nodejs/messaging#createSms
-//     const message = await messaging.createSms(
-//       ID.unique(),
-//       content,
-//       [],
-//       [userId]
-//     );
-//     return parseStringify(message);
-//   } catch (error) {
-//     console.error("An error occurred while sending sms:", error);
-//   }
-// };
+    const message = await messaging.createSms(
+      ID.unique(),
+      content,
+      [],
+      [userId]
+    );
+    return parseStringify(message);
+  } catch (error) {
+    console.error("An error occurred while sending sms:", error);
+  }
+};
 
 //  UPDATE APPOINTMENT
 export const updateAppointment = async ({
   appointmentId,
   userId,
-  // timeZone,
+  timeZone,
   appointment,
   type,
 }: UpdateAppointmentParams) => {
@@ -135,8 +135,8 @@ export const updateAppointment = async ({
 
     if (!updatedAppointment) throw Error;
 
-    // const smsMessage = `Greetings from CarePulse. ${type === "schedule" ? `Your appointment is confirmed for ${formatDateTime(appointment.schedule!, timeZone).dateTime} with Dr. ${appointment.primaryPhysician}` : `We regret to inform that your appointment for ${formatDateTime(appointment.schedule!, timeZone).dateTime} is cancelled. Reason:  ${appointment.cancellationReason}`}.`;
-    // await sendSMSNotification(userId, smsMessage);
+    const smsMessage = `Greetings from CarePulse. ${type === "schedule" ? `Your appointment is confirmed for ${formatDateTime(appointment.schedule!, timeZone).dateTime} with Dr. ${appointment.primaryPhysician}` : `We regret to inform that your appointment for ${formatDateTime(appointment.schedule!, timeZone).dateTime} is cancelled. Reason:  ${appointment.cancellationReason}`}.`;
+    await sendSMSNotification(userId, smsMessage);
 
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
