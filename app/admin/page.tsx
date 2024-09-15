@@ -25,7 +25,7 @@ const AdminPage = async () => {
             className="h-8 w-fit"
           />
         </Link>
-        <p className="text-16-semibold text-red-400">Welcome to Seva Me Admin Portal</p>
+        <p className="text-16-semibold text-red-400">Welcome to DocTime Admin Portal</p>
         <p className="text-16-semibold text-red-400">Admin Dashboard</p>
       </header>
 

@@ -30,7 +30,7 @@ const RequestSuccess = async ({
             className="h-10 w-fit"
           />
         </Link>
-        <h1 className="px-4">Seva Me- Passion for Healing</h1>
+        <h1 className="px-4">DocTime- Passion for Healing</h1>
         </div>
 
         <section className="flex flex-col items-center">
@@ -76,7 +76,7 @@ const RequestSuccess = async ({
           </Link>
         </Button>
 
-        <p className="copyright">© 2024 Seva Me</p>
+        <p className="copyright">© 2024 DocTime</p>
       </div>
     </div>
   );

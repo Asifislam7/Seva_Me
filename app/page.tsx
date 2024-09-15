@@ -20,12 +20,12 @@ const Home=({searchParams}:SearchParamProps)=>{
             alt="patient"
             className="mb-12 h-10 w-fit"
           />
-          <h1 className="font-extrabold text-2xl p-3 text-dark-400">Seva me</h1>
+          <h1 className="font-extrabold text-2xl p-3 text-dark-400">DocTime</h1>
           </div>
           <PatientForm/>
           <div className="text-14-regular mt-20 flex justify-between">
           <p className="justify-items-end text-dark-600 xl:text-left">
-              © 2024 Seva Me
+              © 2024 DocTime
             </p>
             <Link href="/?admin=true" className="text-green-500 font-extrabold hover:text-white hover:duration-500">
               Admin

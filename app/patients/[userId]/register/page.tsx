@@ -24,7 +24,7 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
 
           <RegisterForm user={user} />
 
-          <p className="copyright">© 2024 Seva Me</p>
+          <p className="copyright">© 2024 DocTime</p>
         </div>
       </section>
 
