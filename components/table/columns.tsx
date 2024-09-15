@@ -17,14 +17,20 @@ export const columns: ColumnDef<Appointment>[] = [
       return <p className="text-14-medium ">{row.index + 1}</p>;
     },
   },
-  {
-    accessorKey: "patient",
-    header: "Patient",
-    cell: ({ row }) => {
-      const appointment = row.original;
-      return <p className="text-14-medium ">{appointment.patient.name}</p>;
-    },
-  },
+  // { 
+  //   accessorKey: "patient",
+  //   header: "Patient",
+  //   cell: ({ row }) => {
+  //     const appointment = row.original;
+  //     // try {
+  //     // console.log(appointment.patient.name)
+  //     // } catch (error) {
+  //     //   console.log(error)
+  //     // }
+  //     return <p className="text-14-medium ">{appointment.patient.name!}
+  //   </p>;
+  //   },
+  // },
   {
     accessorKey: "status",
     header: "Status",
@@ -78,25 +84,23 @@ export const columns: ColumnDef<Appointment>[] = [
     header: () => <div className="pl-4">Actions</div>,
     cell: ({ row }) => {
       const appointment = row.original;
-
+      // console.log(appointment)
       return (
         <div className="flex gap-1">
           <AppointmentModal
-            patientId={appointment.patient.$id}
+            // patientId={appointment.patient.$id}
             userId={appointment.userId}
             appointment={appointment}
             type="schedule"
             title="Schedule Appointment"
-            description="Please confirm the following details to schedule."
-          />
+            description="Please confirm the following details to schedule." patientId={""}          />
           <AppointmentModal
-            patientId={appointment.patient.$id}
+            // patientId={appointment.patient.$id}
             userId={appointment.userId}
             appointment={appointment}
             type="cancel"
             title="Cancel Appointment"
-            description="Are you sure you want to cancel this appointment?"
-          />
+            description="Are you sure you want to cancel this appointment?" patientId={""}          />
         </div>
       );
     },

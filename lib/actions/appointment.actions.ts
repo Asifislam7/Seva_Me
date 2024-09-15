@@ -40,6 +40,7 @@ export const getRecentAppointmentList = async () => {
         process.env.NEXT_PUBLIC_APPOINTMENT_COLLECTION_ID!,
       [Query.orderDesc("$createdAt")]
     );
+    // console.log(appointments)
 
     // const scheduledAppointments = (
     //   appointments.documents as Appointment[]

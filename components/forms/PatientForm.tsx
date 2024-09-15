@@ -22,6 +22,7 @@ export const PatientForm = () => {
     defaultValues: {
       name: "",
       email: "",
+      password:"",
       phone: "",
     },
   });
@@ -33,6 +34,7 @@ export const PatientForm = () => {
       const user = {
         name: values.name,
         email: values.email,
+        password:values.password,
         phone: values.phone,
       };
       try{
@@ -77,6 +79,16 @@ export const PatientForm = () => {
           placeholder="johndoe@gmail.com"
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
+        />
+
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="password"
+          label="password"
+          placeholder="Enter a password"
+          iconSrc="/assets/icons/user.svg"
+          iconAlt="passwrod"
         />
 
         <CustomFormField

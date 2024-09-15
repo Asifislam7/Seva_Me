@@ -8,7 +8,11 @@ import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 
 const AdminPage = async () => {
   const appointments = await getRecentAppointmentList();
-
+  try {
+    console.log("appointed patient", appointments.documents.patient)
+  } catch (error) {
+    console.log(error)
+  }
   return (
     <div className="mx-auto flex max-w-full flex-col space-y-14 bg-dark-300 h-auto">
       <header className="admin-header text-white">
@@ -21,8 +25,8 @@ const AdminPage = async () => {
             className="h-8 w-fit"
           />
         </Link>
-        <p className="text-16-semibold">Welcome to Seva Me Admin Portal</p>
-        <p className="text-16-semibold">Admin Dashboard</p>
+        <p className="text-16-semibold text-red-400">Welcome to Seva Me Admin Portal</p>
+        <p className="text-16-semibold text-red-400">Admin Dashboard</p>
       </header>
 
       <main className="admin-main">

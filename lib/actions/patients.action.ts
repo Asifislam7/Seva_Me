@@ -18,6 +18,7 @@ import { parseStringify } from "../utils";
 interface CreateUserParams {
   name: string;
   email: string;
+  password:string;
   phone: string;
 }
 
@@ -28,7 +29,7 @@ export const createUser = async (user: CreateUserParams) => {
       ID.unique(),
       user.email,
       user.phone,
-      undefined,
+      user.password,
       user.name
     );
 
@@ -40,7 +41,6 @@ export const createUser = async (user: CreateUserParams) => {
       const existingUser = await users.list([
         Query.equal("email", user.email),
       ]);
-
       return existingUser?.users[0];
     } else {
       console.error("Error creating user:", error);
@@ -102,13 +102,15 @@ export const registerPatient = async ({
 // GET PATIENT
 export const getPatient = async (userId: string) => {
   try {
+    console.log(userId)
     const patients = await databases.listDocuments(
       process.env.NEXT_PUBLIC_DATABASE_ID!,
       process.env.NEXT_PUBLIC_PATIENT_COLLECTION_ID!,
-      [Query.equal("userId", [userId])]
+      [Query.equal("email","rohit1234@gmail.com")]
     );
+    // return parseStringify(patients.documents[0]);
+    return patients.documents[0].userId;
 
-    return parseStringify(patients.documents[0]);
   } catch (error) {
     console.error(
       "An error occurred while retrieving the patient details:",
