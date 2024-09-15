@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A seamless, user-centric application built with Next.js and Appwrite for efficient appointment booking and management.
 
-## Getting Started
+# Overview
+This project delivers a robust patient appointment system that prioritizes user experience and data security. Leveraging the power of Next.js for frontend development and Appwrite for backend services, this application offers:
+Intuitive Interface: A sleek and user-friendly design for effortless navigation.
+Efficient Appointment Booking: Streamlined process for scheduling appointments with real-time availability.
+Reliable SMS Notifications: Timely reminders and updates through SMS for appointments.
+Comprehensive Record Keeping: Securely stores patient information and appointment history. 
+# **Tech Stack**
+Frontend: Next.js
 
-First, run the development server:
+Backend:[Appwrite](https://appwrite.io/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+SMS: [Twilio](https://www.twilio.com/en-us)
