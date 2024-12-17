@@ -39,7 +39,7 @@ export const createUser = async (user: CreateUserParams) => {
     console.log("got error while creating user: ", error)
     if (error && error?.code === 409) {
       const existingUser = await users.list([
-        Query.equal("email", user.email),
+        Query.equal("email", [user.email]),
       ]);
       return existingUser?.users[0];
     } else {
@@ -106,7 +106,7 @@ export const getPatient = async (userId: string) => {
     const patients = await databases.listDocuments(
       process.env.NEXT_PUBLIC_DATABASE_ID!,
       process.env.NEXT_PUBLIC_PATIENT_COLLECTION_ID!,
-      [Query.equal("email","rohit1234@gmail.com")]
+      [Query.equal("userId",[userId])]
     );
     // return parseStringify(patients.documents[0]);
     return patients.documents[0].userId;

@@ -11,6 +11,7 @@ const fontSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
 });
 
+
 export const metadata: Metadata = {
   title: "DocTime",
   description: "A healthcare app built for public",

@@ -69,11 +69,11 @@ export const AppointmentForm = ({
     }
 
     try {
-      if (type === "create" && patientId) {
+      if (type === "create" && userId) {
         // console.log(patientId)
         const appointment = {
           userId,
-          patient: patientId,
+          patient: userId,
           primaryPhysician: values.primaryPhysician,
           schedule: new Date(values.schedule),
           reason: values.reason!,
