@@ -33,11 +33,6 @@ export const createAppointment = async (
 };
 
 //  GET RECENT APPOINTMENTS
-const initialCounts = {
-  scheduledCount: 0,
-  pendingCount: 0,
-  cancelledCount: 0,
-};
 export const getRecentAppointmentList = async () => {
   try {
     const appointments = await databases.listDocuments(
@@ -45,7 +40,11 @@ export const getRecentAppointmentList = async () => {
         process.env.NEXT_PUBLIC_APPOINTMENT_COLLECTION_ID!,
       [Query.orderDesc("$createdAt")]
     );
-   
+    const initialCounts = {
+      scheduledCount: 0,
+      pendingCount: 0,
+      cancelledCount: 0,
+    };
     const counts = (appointments.documents as Appointment[]).reduce(
       (acc, appointment) => {
         switch (appointment.status) {
