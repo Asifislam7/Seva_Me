@@ -9,7 +9,8 @@ import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 const AdminPage = async () => {
   const appointments = await getRecentAppointmentList();
   try {
-    console.log("appointed patient", appointments.documents.patient)
+    // console.log("appointed patient", appointments.documents.patient)
+    console.log(appointments.scheduledCount);
   } catch (error) {
     console.log(error)
   }
@@ -41,10 +42,11 @@ const AdminPage = async () => {
           <StatCard
             type="appointments"
             count={appointments.scheduledCount}
-            // count={5}
+            // count={5} 
             label="Scheduled appointments"
             icon={"/assets/icons/appointments.svg"}
           />
+
           <StatCard
             type="pending"
             count={appointments.pendingCount}
