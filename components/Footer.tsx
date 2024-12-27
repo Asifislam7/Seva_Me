@@ -184,9 +184,9 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-              <button className="bg-[white] hover:bg-[#0093c2] text-white px-4 py-2 rounded-md flex items-center gap-2 text-black">
+              <button className="bg-[white] hover:bg-[#0093c2] px-4 py-2 rounded-md flex items-center gap-2 text-black">
                 <MessageCircle className="w-4 h-4" />
-                Let's Chat!
+                Lets Chat!
               </button>
             </div>
           </div>

@@ -98,7 +98,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
         </HoverCard>
         <div className="container mx-auto p-6">
           <div className="flex flex-col md:flex-row justify-start">
-            <img
+            <Image
               src="/assets/images/landing.jpg"
               alt=""
               className="rounded-xl h-5/6 hover:scale-105 transition duration-500 pr-0 md:pr-24 mb-4 md:mb-0"
