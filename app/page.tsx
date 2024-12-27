@@ -131,8 +131,8 @@ const Home = ({ searchParams }: SearchParamProps) => {
                   <CarouselItem>
                     <p className="text-lg mb-8 leading-loose">
                       DocTime is already amazing for managing doctor
-                      appointments, and I’m thrilled to hear they’re adding
-                      diagnostic labs soon. It’s a one-stop solution for all
+                      appointments, and I am thrilled to hear they are adding
+                      diagnostic labs soon. It is a one-stop solution for all
                       healthcare needs!
                     </p>
                     <p className="float-right bottom-0 mt-24 text-gray-400">
