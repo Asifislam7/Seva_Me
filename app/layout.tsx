@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/Footer";
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -36,7 +37,10 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+        <div className="flex flex-col min-h-screen">
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

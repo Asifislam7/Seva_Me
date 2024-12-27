@@ -118,3 +118,17 @@ export const getPatient = async (userId: string) => {
     );
   }
 };
+
+
+export const getUserCount = async () => {
+  try {
+    const usersList = await databases.listDocuments(
+      process.env.NEXT_PUBLIC_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_PATIENT_COLLECTION_ID!
+    );
+    return usersList.total;
+  } catch (error) {
+    console.error("An error occurred while retrieving the user count:", error);
+    return 0;
+  }
+};
