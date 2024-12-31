@@ -39,7 +39,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
         <div className="flex flex-col min-h-screen">
             <main className="flex-grow">{children}</main>
-            <Footer />
           </div>
         </ThemeProvider>
       </body>

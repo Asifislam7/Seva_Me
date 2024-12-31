@@ -9,7 +9,11 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-export default function Footer() {
+interface FooterProps {
+  onChatButtonClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export default function Footer({ onChatButtonClick }: FooterProps) {
   return (
     <footer className="w-full">
       {/* Main footer content */}
@@ -184,7 +188,8 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-              <button className="bg-[white] hover:bg-[#0093c2] px-4 py-2 rounded-md flex items-center gap-2 text-black">
+              <button className="bg-[white] hover:bg-[#0093c2] px-4 py-2 rounded-md flex items-center gap-2 text-black"
+                onClick={onChatButtonClick}>
                 <MessageCircle className="w-4 h-4" />
                 Lets Chat!
               </button>

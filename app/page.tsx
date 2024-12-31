@@ -3,6 +3,7 @@ import { PatientForm } from "@/components/forms/PatientForm";
 import { PasskeyModal } from "@/components/PasskeyModal";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -31,11 +32,17 @@ import { getUserCount } from "@/lib/actions/patients.action";
 import { useEffect, useState } from "react";
 import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 import IntroductionSection from "@/components/About";
+import config from "./Chatbot/Chatbotconfig/page";
+import Chatbot from "react-chatbot-kit";
+import MessageParser from "./Chatbot/Messageparser/page";
+import ActionProvider from "./Chatbot/ActionProvider/page";
+import Footer from "@/components/Footer";
 
 const Home = ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
   const [userCount, setUserCount] = useState(0);
   const [appointmendCount, setAppointmentCount] = useState(0);
+  const [showChatbot, setShowChatbot] = useState(false);
 
   useEffect(() => {
     const fetchUserCount = async () => {
@@ -50,8 +57,13 @@ const Home = ({ searchParams }: SearchParamProps) => {
     fetchappointmentCount();
     fetchUserCount();
   }, []);
-  const text =
-    "Welcome to DocTime! Your Trusted Partner for Medical Appointments.";
+
+  const handleChatButtonClick = () => {
+    setShowChatbot(!showChatbot);
+  };
+  const handleCloseChatbot = () => {
+    setShowChatbot(false);
+  };
   return (
     <div className="min-h-screen">
       {isAdmin && <PasskeyModal />}
@@ -89,9 +101,12 @@ const Home = ({ searchParams }: SearchParamProps) => {
       {/* nav bar ends here only */}
       <section className="landing-page">
         <HoverCard>
-          <HoverCardTrigger> <h1 className="font-extrabold text-center mb-4 text-4xl mt-5 text-[#1b1717e8]">
-          Welcome to DocTime!
-        </h1></HoverCardTrigger>
+          <HoverCardTrigger>
+            {" "}
+            <h1 className="font-extrabold text-center mb-4 text-4xl mt-5 text-[#1b1717e8]">
+              Welcome to DocTime!
+            </h1>
+          </HoverCardTrigger>
           <HoverCardContent className="bg-white">
             Your Trusted Partner for Medical Appointments
           </HoverCardContent>
@@ -101,6 +116,8 @@ const Home = ({ searchParams }: SearchParamProps) => {
             <Image
               src="/assets/images/landing.jpg"
               alt=""
+              width={1000}
+              height={1000}
               className="rounded-xl h-5/6 hover:scale-105 transition duration-500 pr-0 md:pr-24 mb-4 md:mb-0"
             />
             <div className="text-justify flex flex-col w-full md:w-5/6 ml-0 md:ml-4">
@@ -182,6 +199,16 @@ const Home = ({ searchParams }: SearchParamProps) => {
           className="side-img max-w-[50%] max-h-[80%] my-auto px-12 rounded-full hover:scale-105 hover:duration-1000"
         />
       </div>
+      {showChatbot && (
+        <div className="fixed bottom-4 right-4 chatbot-container">
+          <Chatbot
+            config={config(handleCloseChatbot)}
+            messageParser={MessageParser}
+            actionProvider={ActionProvider}
+          />
+        </div>
+      )}
+      <Footer onChatButtonClick={handleChatButtonClick} />
     </div>
   );
 };
