@@ -19,10 +19,12 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import useCountAnimation from "./CountAnimation"
+import { Users } from "lucide-react"
 
 interface CardWithFormProps {
   count: number;
   message: string;
+  icon: React.ReactNode;
 }
 
 export function CardWithForm(props: CardWithFormProps) {
@@ -30,6 +32,7 @@ export function CardWithForm(props: CardWithFormProps) {
   return (
     <Card className="w-[350px] shadow-2xl text-white font-bold bg-[#1b1717e8] hover:scale-105 transition-all duration-500">
       <CardHeader>
+       <div className="icon-container">{props.icon}</div>
         <CardTitle className="text-2xl text-center">{animatedCount+"+"}</CardTitle>
         <CardDescription className="text-center">{props.message}</CardDescription>
       </CardHeader>

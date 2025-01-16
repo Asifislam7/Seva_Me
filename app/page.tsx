@@ -31,6 +31,7 @@ import { getUserCount } from "@/lib/actions/patients.action";
 import { useEffect, useState } from "react";
 import { getRecentAppointmentList } from "@/lib/actions/appointment.actions";
 import IntroductionSection from "@/components/About";
+import { Stethoscope, CalendarDays, Users } from 'lucide-react'
 
 const Home = ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
@@ -50,8 +51,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
     fetchappointmentCount();
     fetchUserCount();
   }, []);
-  const text =
-    "Welcome to DocTime! Your Trusted Partner for Medical Appointments.";
+
   return (
     <div className="min-h-screen">
       {isAdmin && <PasskeyModal />}
@@ -68,8 +68,19 @@ const Home = ({ searchParams }: SearchParamProps) => {
 
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-              <NavigationMenuTrigger>Health Checkup</NavigationMenuTrigger>
+              <NavigationMenuTrigger>
+                <Link href="/about" className="hover:underline">
+                  About{" "}
+                </Link>
+              </NavigationMenuTrigger>
+              <HoverCard>
+                <HoverCardTrigger>
+                  <NavigationMenuTrigger>Health Checkup</NavigationMenuTrigger>
+                </HoverCardTrigger>
+                <HoverCardContent className="bg-white">
+                  Coming Soon!!!
+                </HoverCardContent>
+              </HoverCard>
               <NavigationMenuTrigger>Services</NavigationMenuTrigger>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -89,9 +100,12 @@ const Home = ({ searchParams }: SearchParamProps) => {
       {/* nav bar ends here only */}
       <section className="landing-page">
         <HoverCard>
-          <HoverCardTrigger> <h1 className="font-extrabold text-center mb-4 text-4xl mt-5 text-[#1b1717e8]">
-          Welcome to DocTime!
-        </h1></HoverCardTrigger>
+          <HoverCardTrigger>
+            {" "}
+            <h1 className="font-extrabold text-center mb-4 text-4xl mt-5 text-[#1b1717e8]">
+              Welcome to DocTime!
+            </h1>
+          </HoverCardTrigger>
           <HoverCardContent className="bg-white">
             Your Trusted Partner for Medical Appointments
           </HoverCardContent>
@@ -101,6 +115,8 @@ const Home = ({ searchParams }: SearchParamProps) => {
             <Image
               src="/assets/images/landing.jpg"
               alt=""
+              width={1000}
+              height={1000}
               className="rounded-xl h-5/6 hover:scale-105 transition duration-500 pr-0 md:pr-24 mb-4 md:mb-0"
             />
             <div className="text-justify flex flex-col w-full md:w-5/6 ml-0 md:ml-4">
@@ -149,12 +165,12 @@ const Home = ({ searchParams }: SearchParamProps) => {
       </section>
       <IntroductionSection />
       <div className="flex flex-col md:flex-row justify-evenly items-center mt-10 space-y-4 md:space-y-0">
-        <CardWithForm count={userCount} message="Users visited till now" />
+        <CardWithForm count={userCount} message="Users visited till now" icon={<Users className="w-8 h-8 mx-auto mb-2" />} />
         <CardWithForm
           count={appointmendCount}
-          message="Appointments handled till now"
+          message="Appointments handled till now" icon={<CalendarDays className="w-8 h-8 mx-auto mb-2" />}
         />
-        <CardWithForm count={50} message="Doctors available" />
+        <CardWithForm count={50} message="Doctors available" icon={<Stethoscope className="w-8 h-8 mx-auto mb-2" />} />
       </div>
       {/* Add the form section with an id */}
       <div className="flex justify-between" id="login-form">

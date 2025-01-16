@@ -120,3 +120,22 @@ export function getAppointmentSchema(type: string) {
       return ScheduleAppointmentSchema;
   }
 }
+
+
+export const BlogFormValidation = z.object({
+  fullname: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must be at most 50 characters"),
+  title: z
+    .string()
+    .min(2, "Blog Title must be at least 2 characters")
+    .max(100, "Blog Title must be at most 100 characters"),
+  category: z
+    .string()
+    .min(2, "Category must be at least 2 characters")
+    .max(1000, "Category must be at most 50 characters"),
+  blogcontent: z
+    .string()
+    .min(10, "Blog Content must be at least 10 characters"),
+});
