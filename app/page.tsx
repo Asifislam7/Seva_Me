@@ -81,7 +81,14 @@ const Home = ({ searchParams }: SearchParamProps) => {
                   Coming Soon!!!
                 </HoverCardContent>
               </HoverCard>
-              <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+              <HoverCard>
+                <HoverCardTrigger>
+                  <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                </HoverCardTrigger>
+                <HoverCardContent className="bg-white">
+                  Audio Transcription, Video Consultation, and more coming soon!!!
+                </HoverCardContent>
+              </HoverCard>
             </NavigationMenuItem>
           </NavigationMenuList>
           <div className="flex space-x-4 float-right">
@@ -119,8 +126,8 @@ const Home = ({ searchParams }: SearchParamProps) => {
               height={1000}
               className="rounded-xl h-5/6 hover:scale-105 transition duration-500 pr-0 md:pr-24 mb-4 md:mb-0"
             />
-            <div className="text-justify flex flex-col w-full md:w-5/6 ml-0 md:ml-4">
-              <Carousel className="w-full bg-[#1b1717e8] text-white p-5 rounded-lg shadow-xl">
+            <div className="text-justify flex flex-col max-w-fit md:w-5/6 ml-0 md:ml-4">
+              <Carousel className="w-full bg-white text-[#b9770e] p-5 rounded-lg shadow-xl">
                 <CarouselContent>
                   <CarouselItem>
                     <p className="text-lg mb-8 leading-loose">

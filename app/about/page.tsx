@@ -1,10 +1,44 @@
 "use client";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import { Card } from "@/components/ui/card";
 
 import BlogForm from "@/components/forms/BlogForm";
 import Image from "next/image";
+import Link from "next/link";
 export default function AboutPage() {
+  const faqs = [
+    {
+      trigger: "Can I access DocTime on my mobile device?",
+      content: " Yes, DocTime is a mobile-friendly platform and can be accessed on any device with a web browser. We are also working on a dedicated mobile app for enhanced user experience.",
+    },
+    {
+      trigger: "Is my data secure?",
+      content: "Absolutely. We use end-to-end encryption and comply with healthcare data protection standards to ensure your information is safe.",
+    },
+    {
+      trigger: "Can I consult a doctor virtually through DocTime?",
+      content: "Yes, we offer telemedicine features like video consultations. You can book a virtual appointment with your preferred doctor through the platform.",
+    },
+    {
+      trigger: "How do I book or cancel an appointment?",
+      content: "To book an appointment, go to the Appointments section, select your doctor, and choose a date and time. To cancel, navigate to your scheduled appointments and click on the Cancel button.",
+    },
+    {
+      trigger: "How do I reset my password?",
+      content: "Go to the Login page, click on Forgot Password, and follow the instructions to reset your password.",
+    },
+    {
+      trigger: "Is there any AI assistance?",
+      content: "Yes, it is under development. Soon it will be live on our website.",
+    },
+    
+  ];
   function BlogCard({
     title,
     excerpt,
@@ -14,7 +48,7 @@ export default function AboutPage() {
     title: string;
     excerpt: string;
     date: string;
-    author:string;
+    author: string;
   }) {
     return (
       <Card className="p-6 hover:shadow-lg transition-shadow">
@@ -29,9 +63,28 @@ export default function AboutPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className=" container px-4 mx-auto py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
-          About DocTime
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8" style={{background:"linear-gradient(to right, white , pink  )"}}>
+          About DocTime <Link href="/" className="text-blue-600 text-sm float-right m-2">
+          Home
+        </Link>
         </h1>
+        {/* Link for home  */}
+       
+        <h1 className="text-2xl md:text-3xl font-bold text-center mb-8 text-fuchsia-950 font-serif">
+          Faq(Frequently Asked Questions)
+        </h1>
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
+          {faqs.map((faq, index) => (
+            <Accordion key={index} type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-xl font-bold mb-4">
+                  {faq.trigger}
+                </AccordionTrigger>
+                <AccordionContent>{faq.content}</AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          ))}
+        </div>
 
         {/* Mission & Vision Cards */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -43,13 +96,13 @@ export default function AboutPage() {
               platform, ensuring timely and efficient medical consultations for
               everyone.
             </p>
-             <Image
-                     src="/assets/images/mission.jpg"
-                     height={1000}
-                     width={1000}
-                     alt="patient"
-                     className="p-20 rounded-lg hover:scale-105 hover:duration-1000"
-                   />
+            <Image
+              src="/assets/images/mission.jpg"
+              height={1000}
+              width={1000}
+              alt="patient"
+              className="p-20 rounded-lg hover:scale-105 hover:duration-1000"
+            />
           </Card>
 
           <Card className="p-6 hover:shadow-lg transition-shadow bg-slate-50">
@@ -60,14 +113,13 @@ export default function AboutPage() {
               barriers and making professional medical care accessible to all.
             </p>
             <Image
-          src="/assets/images/vision.jpg"
-          height={1000}
-          width={1000}
-          alt="patient"
-           className="p-20 rounded-lg hover:scale-105 hover:duration-1000"
-        />
+              src="/assets/images/vision.jpg"
+              height={1000}
+              width={1000}
+              alt="patient"
+              className="p-20 rounded-lg hover:scale-105 hover:duration-1000"
+            />
           </Card>
-  
         </div>
 
         {/* Blog Section */}
