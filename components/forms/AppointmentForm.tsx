@@ -22,13 +22,13 @@ import { Form } from "../ui/form";
 
 export const AppointmentForm = ({
   userId,
-  patientId,
+  
   type = "create",
   appointment,
   setOpen,
 }: {
   userId: string;
-  patientId: string;
+
   type: "create" | "schedule" | "cancel";
   appointment?: Appointment;
   setOpen?: Dispatch<SetStateAction<boolean>>;
@@ -73,7 +73,6 @@ export const AppointmentForm = ({
         // console.log(patientId)
         const appointment = {
           userId,
-          patient: userId,
           primaryPhysician: values.primaryPhysician,
           schedule: new Date(values.schedule),
           reason: values.reason!,
@@ -134,7 +133,7 @@ export const AppointmentForm = ({
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 space-y-6">
         {type === "create" && (
           <section className="mb-12 space-y-4">
-            <h1 className="header">New Appointment</h1>
+            <h1 className="header text-gray-800">New Appointment</h1>
             <p className="text-dark-700">
               Request a new appointment in 10 seconds.
             </p>

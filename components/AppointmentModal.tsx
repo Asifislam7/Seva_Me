@@ -18,12 +18,12 @@ import { AppointmentForm } from "./forms/AppointmentForm";
 import "react-datepicker/dist/react-datepicker.css";
 
 export const AppointmentModal = ({
-  patientId,
+  // patientId,
   userId,
   appointment,
   type,
 }: {
-  patientId: string;
+  // patientId: string;
   userId: string;
   appointment?: Appointment;
   type: "schedule" | "cancel";
@@ -52,7 +52,7 @@ export const AppointmentModal = ({
 
         <AppointmentForm
           userId={userId}
-          patientId={patientId}
+          // patientId={patientId}
           type={type}
           appointment={appointment}
           setOpen={setOpen}
