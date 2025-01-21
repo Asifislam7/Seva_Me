@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 
 export default function IntroductionSection() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };

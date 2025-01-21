@@ -86,7 +86,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
                   <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                 </HoverCardTrigger>
                 <HoverCardContent className="bg-white">
-                  Audio Transcription, Video Consultation, and more coming soon!!!
+                  Audio Transcription, Video Consultation, Online Pharmacy and more coming soon!!!
                 </HoverCardContent>
               </HoverCard>
             </NavigationMenuItem>
