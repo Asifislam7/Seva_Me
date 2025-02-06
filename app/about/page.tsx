@@ -22,10 +22,6 @@ export default function AboutPage() {
       content: "Absolutely. We use end-to-end encryption and comply with healthcare data protection standards to ensure your information is safe.",
     },
     {
-      trigger: "Can I consult a doctor virtually through DocTime?",
-      content: "Yes, we offer telemedicine features like video consultations. You can book a virtual appointment with your preferred doctor through the platform.",
-    },
-    {
       trigger: "How do I book or cancel an appointment?",
       content: "To book an appointment, go to the Appointments section, select your doctor, and choose a date and time. To cancel, navigate to your scheduled appointments and click on the Cancel button.",
     },
@@ -101,7 +97,7 @@ export default function AboutPage() {
               height={1000}
               width={1000}
               alt="patient"
-              className="p-20 rounded-lg hover:scale-105 hover:duration-1000"
+              className="p-4 w-full h-auto rounded-lg hover:scale-105 hover:duration-1000"
             />
           </Card>
 
@@ -117,7 +113,7 @@ export default function AboutPage() {
               height={1000}
               width={1000}
               alt="patient"
-              className="p-20 rounded-lg hover:scale-105 hover:duration-1000"
+              className="p-4 w-full h-auto rounded-lg hover:scale-105 hover:duration-1000"
             />
           </Card>
         </div>
