@@ -12,3 +12,6 @@ Frontend: Next.js
 Backend:[Appwrite](https://appwrite.io/)
 
 SMS: [Twilio](https://www.twilio.com/en-us)
+
+
+# Backend Not working right now, the app is not functional right now. Building a new backend. WILL BE BACK SOON.
